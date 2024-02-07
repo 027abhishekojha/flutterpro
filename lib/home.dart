@@ -13,38 +13,46 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: Row(
+          mainAxisSize: MainAxisSize.max,
+          // mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.end,
+
       children: [
-        SizedBox(
-            height: 200,
-            width: 200,
-            child: Card(
-              color: Colors.cyanAccent,child: Column(
-              children: [
-                SizedBox(height: 12,),
-                Image.asset("assets/images/quiz-logo.png", height: 80,),
-                SizedBox(height: 12,),
-                Text("Text1"),
-                SizedBox(height: 12,),
-                ElevatedButton(onPressed: () {}, child: Text("Play"))
-              ],
-            ),
-            )
+        Expanded(
+          child: SizedBox(
+              height: 200,
+              width: 200,
+              child: Card(
+                color: Colors.cyanAccent,child: Column(
+                children: [
+                  SizedBox(height: 12,),
+                  Image.asset("assets/images/quiz-logo.png", height: 80,),
+                  SizedBox(height: 12,),
+                  Text("Text1"),
+                  SizedBox(height: 12,),
+                  ElevatedButton(onPressed: () {}, child: Text("Play"))
+                ],
+              ),
+              )
+          ),
         ),
-        SizedBox(
-            height: 200,
-            width: 200,
-            child: Card(
-              color: Colors.deepOrangeAccent,child: Column(
-              children: [
-                SizedBox(height: 12,),
-                Image.asset("assets/images/quiz-logo.png", height: 80,),
-                SizedBox(height: 12,),
-                Text("Text1"),
-                SizedBox(height: 12,),
-                ElevatedButton(onPressed: () {}, child: Text("Play"))
-              ],
-            ),
-            )
+        Expanded(
+          child: SizedBox(
+              height: 200,
+              width: 200,
+              child: Card(
+                color: Colors.deepOrangeAccent,child: Column(
+                children: [
+                  SizedBox(height: 12,),
+                  Image.asset("assets/images/quiz-logo.png", height: 80,),
+                  SizedBox(height: 12,),
+                  Text("Text1"),
+                  SizedBox(height: 12,),
+                  ElevatedButton(onPressed: () {}, child: Text("Play"))
+                ],
+              ),
+              )
+          ),
         ),
 
       ],

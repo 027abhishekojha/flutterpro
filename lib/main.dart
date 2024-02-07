@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:udemy_3_2/quiz.dart';
 
 import 'home.dart';
 
@@ -15,7 +16,9 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      // home: MyHomePage(),
+      home: Quiz(),
+
     );
   }
 }
