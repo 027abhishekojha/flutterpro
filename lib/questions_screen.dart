@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:udemy_3_2/data/question.dart';
 import 'package:udemy_3_2/model/quiz_question.dart';
 import 'package:udemy_3_2/widgets/answer_button.dart';
@@ -36,13 +37,16 @@ class _QuestionScreenState extends State<QuestionScreen> {
           children: [
             Padding(
               // padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 5),
-              padding: EdgeInsets.fromLTRB(8, 8, 8, 2),
+              padding: const EdgeInsets.fromLTRB(8, 8, 8, 2),
               child: Text(
                 // "Questions ??",
                 // questions[0].text,
                 currentQuestion.text,
-                style: TextStyle(color: Colors.white, fontSize: 20),
-                textAlign: TextAlign.center,
+                // style: TextStyle(color: Colors.white, fontSize: 20),
+                style: GoogleFonts.lato(
+                 color: Colors.white,
+                  fontSize: 22, fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             const SizedBox(
