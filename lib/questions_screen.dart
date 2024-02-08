@@ -12,9 +12,21 @@ class QuestionScreen extends StatefulWidget {
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
-  QuizQuestion currentQuestion = questions[5];
+
+  var currentQuestionIndex = 0;
+
+  void answerQuestion () {
+
+    setState(() {
+    currentQuestionIndex += 1;
+    });
+  }
+
+  // QuizQuestion currentQuestion = questions[5];
+  // QuizQuestion currentQuestion = questions[currentQuestionIndex];
   @override
   Widget build(BuildContext context) {
+    QuizQuestion currentQuestion = questions[currentQuestionIndex];
     return Center(
       child: Container(
         margin: EdgeInsets.all(40),
@@ -42,8 +54,8 @@ class _QuestionScreenState extends State<QuestionScreen> {
             /**Note:- Main Widget is Column and we are passing another list item to a Column list to get rid of this problem
             we simply used Spreader over here which converts the iterable list into a Widget by adding ("...") in front of function name
            */
-            ...currentQuestion.answer.map((answer) {
-              return AnswerButton(optionText: answer, onTapped: (){});
+            ...currentQuestion.getShuffledAnswer().map((answer) {
+              return AnswerButton(optionText: answer, onTapped: answerQuestion);
             })
 
 
@@ -94,3 +106,6 @@ class _QuestionScreenState extends State<QuestionScreen> {
     );
   }
 }
+
+
+

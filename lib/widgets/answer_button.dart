@@ -13,7 +13,7 @@ class AnswerButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onTapped,
       child: Text(
-        optionText
+        optionText, textAlign: TextAlign.center,
         // questions[0].answer[0],
       ),
     );
