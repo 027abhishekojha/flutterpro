@@ -4,9 +4,9 @@ import 'package:udemy_3_2/data/question.dart';
 import 'package:udemy_3_2/model/quiz_question.dart';
 import 'package:udemy_3_2/widgets/answer_button.dart';
 class QuestionScreen extends StatefulWidget {
-  const QuestionScreen({super.key});
+  const QuestionScreen({super.key, required this.onSelectAnswer});
 
-
+  final void Function(String answer) onSelectAnswer;
 
   @override
   State<QuestionScreen> createState() => _QuestionScreenState();
@@ -15,9 +15,8 @@ class QuestionScreen extends StatefulWidget {
 class _QuestionScreenState extends State<QuestionScreen> {
 
   var currentQuestionIndex = 0;
-
-  void answerQuestion () {
-
+  void answerQuestion (String selectedAnswer) {
+    widget.onSelectAnswer(selectedAnswer);
     setState(() {
     currentQuestionIndex += 1;
     });
@@ -59,7 +58,13 @@ class _QuestionScreenState extends State<QuestionScreen> {
             we simply used Spreader over here which converts the iterable list into a Widget by adding ("...") in front of function name
            */
             ...currentQuestion.getShuffledAnswer().map((answer) {
-              return AnswerButton(optionText: answer, onTapped: answerQuestion);
+              return AnswerButton(optionText: answer,
+                  // onTapped: answerQuestion
+                onTapped: () {
+                answerQuestion(answer);
+                },
+
+              );
             })
 
 

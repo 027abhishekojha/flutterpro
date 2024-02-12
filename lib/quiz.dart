@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:udemy_3_2/questions_screen.dart';
 import 'package:udemy_3_2/widgets/customCardContainer.dart';
 
+import 'data/question.dart';
+
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
   @override
@@ -9,6 +11,7 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
+  List<String> selectedAnswers = [];
   // Widget activeScreen = CustomCardContainer(switchScreen);
   // Widget? activeScreen;
   var activeScreen = 'start-screen';
@@ -28,6 +31,17 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void chooseAnswer(String answer) {
+    selectedAnswers.add(answer);
+    if (selectedAnswers.length == questions.length) {
+      setState(() {
+        selectedAnswers = [];
+        activeScreen = 'start-screen';
+      });
+    }
+
+  }
+
   @override
   Widget build(BuildContext context) {
     // final screenWidget = activeScreen == 'start-screen'
@@ -36,7 +50,9 @@ class _QuizState extends State<Quiz> {
 
     Widget screenWidget = CustomCardContainer(switchScreen);
         if (activeScreen == 'Question-screen') {
-            screenWidget = const QuestionScreen();
+            screenWidget =  QuestionScreen(
+                onSelectAnswer: chooseAnswer,
+            );
           // screenWidget = CustomCardContainer(switchScreen);
         }
 
