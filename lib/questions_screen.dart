@@ -29,7 +29,7 @@ class _QuestionScreenState extends State<QuestionScreen> {
     QuizQuestion currentQuestion = questions[currentQuestionIndex];
     return Center(
       child: Container(
-        margin: EdgeInsets.all(40),
+        margin: const EdgeInsets.all(40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,

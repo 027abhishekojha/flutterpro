@@ -88,4 +88,13 @@ const questions = [
       'By calling updateState()',
     ],
   ),
+  QuizQuestion(
+    'What will happen if Google is Hacked',
+    [
+      'AI will takeover the world',
+      'AI will rule',
+      'Human will be lost',
+      'extra terrestrial will take charge on Earth',
+    ],
+  ),
 ];
